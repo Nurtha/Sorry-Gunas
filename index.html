@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I'm Sorry</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap');
+
+  :root{
+    --ink: #2e2115;
+    --ink-soft: #6b4a34;
+    --sunset-1: #ffb37a;
+    --sunset-2: #ff8c66;
+    --sunset-3: #f2637a;
+    --sunset-4: #9a5cc2;
+    --paper: #fff6ee;
+    --line: rgba(255,255,255,0.5);
+  }
+
+  *{ box-sizing: border-box; }
+
+  html, body{ margin:0; height:100%; }
+
+  body{
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    background: linear-gradient(120deg, var(--sunset-1), var(--sunset-2), var(--sunset-3), var(--sunset-4));
+    background-size: 300% 300%;
+    animation: flow 18s ease infinite;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  @keyframes flow{
+    0%{ background-position: 0% 50%; }
+    50%{ background-position: 100% 50%; }
+    100%{ background-position: 0% 50%; }
+  }
+
+  /* floating soft shapes */
+  .orb{
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(2px);
+    opacity: 0.35;
+    background: white;
+    pointer-events: none;
+    animation: drift linear infinite;
+  }
+  .orb.a{ width: 90px; height: 90px; top: 10%; left: 8%; animation-duration: 22s; }
+  .orb.b{ width: 50px; height: 50px; top: 65%; left: 82%; animation-duration: 17s; animation-delay: -4s;}
+  .orb.c{ width: 130px; height: 130px; top: 75%; left: 12%; animation-duration: 28s; animation-delay: -10s;}
+  .orb.d{ width: 40px; height: 40px; top: 20%; left: 85%; animation-duration: 14s; animation-delay: -2s;}
+
+  @keyframes drift{
+    0%{ transform: translateY(0) translateX(0) scale(1); }
+    50%{ transform: translateY(-30px) translateX(20px) scale(1.08); }
+    100%{ transform: translateY(0) translateX(0) scale(1); }
+  }
+
+  .card{
+    max-width: 620px;
+    margin: 56px auto 96px;
+    padding: 56px 40px 48px;
+    background: var(--paper);
+    border-radius: 22px;
+    box-shadow: 0 30px 60px -20px rgba(80, 30, 20, 0.35);
+    position: relative;
+    z-index: 2;
+    animation: rise-in 0.8s cubic-bezier(.2,.8,.2,1) both;
+  }
+
+  @keyframes rise-in{
+    from{ opacity: 0; transform: translateY(24px) scale(0.98); }
+    to{ opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  h1{
+    font-family: 'Source Serif 4', serif;
+    font-weight: 600;
+    font-size: clamp(2.1rem, 5vw, 2.9rem);
+    line-height: 1.15;
+    margin: 0 0 24px;
+    background: linear-gradient(90deg, var(--sunset-3), var(--sunset-4));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    max-width: 14ch;
+  }
+
+  p{
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    max-width: 52ch;
+    margin: 0 0 20px;
+  }
+
+  p.lede{
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    font-size: 1.25rem;
+    color: var(--ink);
+    max-width: 44ch;
+  }
+
+  .rule{
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--sunset-3), transparent);
+    margin: 40px 0;
+  }
+
+  .video-frame{
+    margin: 36px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .video-frame iframe{
+    border-radius: 12px;
+    display: block;
+    max-width: 100%;
+    box-shadow: 0 20px 40px -16px rgba(80, 30, 20, 0.4);
+  }
+
+  .caption{
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    letter-spacing: 0.01em;
+  }
+
+  .sign{
+    margin-top: 44px;
+  }
+  .sign .from{
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    background: linear-gradient(90deg, var(--sunset-4), var(--sunset-3));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    body, .orb, .card{ animation: none !important; }
+  }
+</style>
+</head>
+<body>
+  <div class="orb a"></div>
+  <div class="orb b"></div>
+  <div class="orb c"></div>
+  <div class="orb d"></div>
+
+  <div class="card">
+    <h1>I'm sorry.</h1>
+
+    <p class="lede">For whatever I did that hurt you — I truly am sorry.</p>
+
+    <p>I know saying it isn't the same as making it right, but I need you to hear it plainly: I was wrong, and I'm not looking for excuses. I just want the chance to do better.</p>
+
+    <p>If there's something specific I got wrong that I still don't fully see, tell me. I'd rather understand it than let it sit between us.</p>
+
+    <hr class="rule">
+
+    <div class="video-frame">
+      <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fweb.facebook.com%2Freel%2F2047650509205908%2F&show_text=false&width=267&t=4&autoplay=true&mute=1" width="267" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+    </div>
+
+    <hr class="rule">
+
+    <div class="sign">
+      <p class="from">I mean it.</p>
+    </div>
+  </div>
+</body>
+</html>
